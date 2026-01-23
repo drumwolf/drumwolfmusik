@@ -6,7 +6,9 @@ export default function PostsPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Posts</h1>
+      <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 rounded-sm shadow">
+        Posts
+      </h1>
       <div className="space-y-8">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
