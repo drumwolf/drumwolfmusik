@@ -6,7 +6,9 @@ export default function PostsPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Interviews</h1>
+      <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 rounded-sm shadow">
+        Interviews
+      </h1>
       <div className="space-y-8">
         {interviews.map(interview => (
           <article key={interview.slug} className="border-b border-gray-200 pb-6">
