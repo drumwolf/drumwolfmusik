@@ -1,6 +1,9 @@
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import { compile, run } from '@mdx-js/mdx'
+import * as runtime from 'react/jsx-runtime'
+import { useMDXComponents } from '@/mdx-components'
 
 type Props = {
   params: Promise<{ category: string; slug: string }>
@@ -39,15 +42,16 @@ export default async function PostPage({ params }: Props) {
     notFound()
   }
 
-  // Dynamic import of MDX content
-  let MDXContent
-  try {
-    const module = await import(`@/content/${category}/${slug}.mdx`)
-    MDXContent = module.default
-  } catch (error) {
-    console.error('Error loading MDX:', error)
-    notFound()
-  }
+  // Compile the MDX content (frontmatter already stripped by gray-matter)
+  const compiled = String(await compile(post.content, {
+    outputFormat: 'function-body',
+  }))
+
+  const mdxComponents = useMDXComponents({})
+  const { default: MDXContent } = await run(compiled, {
+    ...runtime,
+    useMDXComponents: () => mdxComponents,
+  } as any)
 
   return (
     <article>
@@ -68,7 +72,7 @@ export default async function PostPage({ params }: Props) {
         )}
       </header>
       <div className="prose prose-lg max-w-none">
-        <MDXContent />
+        <MDXContent components={mdxComponents} />
       </div>
     </article>
   )
