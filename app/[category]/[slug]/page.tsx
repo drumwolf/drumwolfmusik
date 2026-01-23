@@ -71,6 +71,7 @@ export default async function PostPage({ params }: Props) {
           </div>
         )}
       </header>
+      <hr className="border-gray-300 mb-8" />
       <div className="prose prose-lg max-w-none">
         <MDXContent components={mdxComponents} />
       </div>
