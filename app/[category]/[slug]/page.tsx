@@ -55,7 +55,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article>
-      <header className="mb-8">
+      <header className="mb-8 mt-6">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="text-gray-600 mb-4">
           {new Date(post.date).toLocaleDateString()} · {post.readingTime}

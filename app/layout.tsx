@@ -40,7 +40,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="max-w-4xl mx-auto px-4 py-8 font-sans">
+        <main className="max-w-4xl mx-auto px-4 font-sans">
           {children}
         </main>
       </body>

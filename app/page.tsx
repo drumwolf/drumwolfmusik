@@ -5,8 +5,8 @@ export default function Home() {
   const posts = getAllPosts().slice(0, 10)
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mb-8">Latest Posts</h1>
+    <>
+      <img src="/images/cover_photo.jpg" alt="Musik" className="w-full h-48 object-cover mb-8" />
       <div className="space-y-8">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
@@ -32,6 +32,6 @@ export default function Home() {
           </article>
         ))}
       </div>
-    </div>
+    </>
   )
 }
