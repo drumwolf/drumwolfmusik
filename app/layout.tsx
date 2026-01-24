@@ -34,8 +34,8 @@ export default function RootLayout({
               <a href="/" className="text-2xl font-bold">drumwolfmusik</a>
               <div className="space-x-6">
                 <a href="/posts" className="hover:text-blue-600">Posts</a>
-                <a href="/interviews" className="hover:text-blue-600">Interviews</a>
-                <a href="/scenes" className="hover:text-blue-600">Scenes</a>
+                {/* <a href="/interviews" className="hover:text-blue-600">Interviews</a>
+                <a href="/scenes" className="hover:text-blue-600">Scenes</a> */}
               </div>
             </div>
           </nav>
