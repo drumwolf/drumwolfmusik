@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/posts'
 import Link from 'next/link'
+import { getAllPosts } from '@/lib/posts'
 
 export default function PostsPage() {
   const posts = getAllPosts('posts')
@@ -9,7 +9,7 @@ export default function PostsPage() {
       <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 rounded-sm shadow">
         Posts
       </h1>
-      <div className="space-y-8">
+      <div className="space-y-8 px-4">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
             <Link href={`/posts/${post.slug}`}>

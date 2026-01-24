@@ -1,8 +1,10 @@
-import { getAllPosts, getPostBySlug } from '@/lib/posts'
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
-import { compile, run } from '@mdx-js/mdx'
 import * as runtime from 'react/jsx-runtime'
+
+import { compile, run } from '@mdx-js/mdx'
+import { getAllPosts, getPostBySlug } from '@/lib/posts'
+
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { useMDXComponents } from '@/mdx-components'
 
 type Props = {
@@ -54,8 +56,8 @@ export default async function PostPage({ params }: Props) {
   } as any)
 
   return (
-    <article>
-      <header className="mb-8 mt-6">
+    <article className="px-8">
+      <header className="mb-8 pt-6">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="text-gray-600 mb-4">
           {new Date(post.date).toLocaleDateString()} · {post.readingTime}

@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/posts'
 import Link from 'next/link'
+import { getAllPosts } from '@/lib/posts'
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 10)
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <img src="/images/cover_photo.jpg" alt="Musik" className="w-full h-48 object-cover mb-8" />
-      <div className="space-y-8">
+      <div className="space-y-8 px-4">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
             <Link href={`/${post.category}/${post.slug}`}>
