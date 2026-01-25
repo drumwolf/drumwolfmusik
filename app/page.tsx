@@ -20,11 +20,11 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {posts.map(post => (
             <article key={post.slug} className={`group`}>
               <Link href={`/${post.category}/${post.slug}`}>
-                <div className="relative aspect-[4/5] overflow-hidden border-2 border-primary mb-6 brutal-shadow group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-none transition-all duration-300">
+                <div className="relative aspect-[3/2] overflow-hidden border-2 border-primary mb-6 brutal-shadow group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-none transition-all duration-300">
                   <Image 
                     src={`/images/${post.slug}.jpg`}
                     width="10"
