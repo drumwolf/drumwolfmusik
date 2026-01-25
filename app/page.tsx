@@ -63,7 +63,7 @@ export default function Home() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-muted-foreground font-mono text-xs uppercase">
                     <Disc className="w-4 h-4" />
-                    <span>Jan 22, 2026</span>
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
                   </div>
                   <h3 className="text-xl font-display font-bold leading-tight group-hover:text-accent transition-colors">
                     {post.title}
