@@ -22,16 +22,16 @@ export default function Home() {
                 {post.title}
               </h2>
             </Link>
-            <div className="text-sm text-gray-600 mb-2">
+            <div className="text-sm text-gray-600 mb-3">
               {new Date(post.date).toLocaleDateString()} · {post.readingTime}
               {post.band && ` · ${post.band}`}
             </div>
-            <p className="text-gray-700">{post.description}</p>
-            <Link href={`/${post.category}/${post.slug}`} className="text-blue-600 hover:text-blue-800 inline-block my-2 text-sm">
+            <p className="text-gray-700 mb-3">{post.description}</p>
+            <Link href={`/${post.category}/${post.slug}`} className="text-blue-600 hover:text-blue-800 inline-block mb-3 font-medium">
               Read full article →
             </Link>
             {post.tags && (
-              <div className="mt-2 flex gap-2">
+              <div className="flex gap-2">
                 {post.tags.map(tag => (
                   <span key={tag} className="text-xs bg-gray-200 px-2 py-1 rounded">
                     {tag}
