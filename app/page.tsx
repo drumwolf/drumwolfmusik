@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 
@@ -6,7 +7,13 @@ export default function Home() {
 
   return (
     <>
-      <img src="/images/cover_photo.jpg" alt="Musik" className="w-full h-48 object-cover mb-8" />
+      <Image
+        src="/images/cover_photo.jpg"
+        width="975"
+        height="150"
+        alt="Musik"
+        className="w-full h-48 object-cover mb-8"
+      />
       <div className="space-y-8 px-4">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
@@ -20,6 +27,9 @@ export default function Home() {
               {post.band && ` · ${post.band}`}
             </div>
             <p className="text-gray-700">{post.description}</p>
+            <Link href={`/${post.category}/${post.slug}`} className="text-blue-600 hover:text-blue-800 inline-block my-2 text-sm">
+              Read full article →
+            </Link>
             {post.tags && (
               <div className="mt-2 flex gap-2">
                 {post.tags.map(tag => (
