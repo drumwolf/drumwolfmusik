@@ -17,9 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'drumwolfmusik - Music Blog',
+  title: 'drumwolfmusik - Underground Sounds, Then and Now',
   description: 'In-depth music coverage, interviews, and scene overviews',
   keywords: ['music blog', 'band interviews', 'music scenes', 'album reviews'],
+  verification: {
+    google: 'DmRG2D2ucbT9CfGoQngzrImZSTavAS9Qkxw0E_1gPkM',
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
