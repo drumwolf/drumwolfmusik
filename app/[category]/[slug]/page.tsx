@@ -77,6 +77,16 @@ export default async function PostPage({ params }: Props) {
       <div className="prose prose-lg max-w-none">
         <MDXContent components={mdxComponents} />
       </div>
+
+      {/* Back to Top Link */}
+      <div className="mt-12 py-4 border-t border-gray-300 text-center">
+        <a 
+          href="#top" 
+          className="inline-block text-blue-600 hover:text-blue-800 font-semibold"
+        >
+          ↑ Back to Top
+        </a>
+      </div>
     </article>
   )
 }
