@@ -32,12 +32,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <Image src="/images/cover_photo.jpg" width={896} height={192} alt="Musik" className="w-full h-48 object-cover mb-8" /> */}
-
       {/* Featured Grid */}
       <section className="space-y-8 px-8 py-8">
         <div className="flex items-end justify-between mb-16 border-b-2 border-primary pb-4">
-          <h2 className="text-2xl font-display font-bold uppercase">Latest Features</h2>
+          <h2 className="text-2xl font-display font-bold uppercase">Latest Spew</h2>
           <Link href="/posts" className="font-mono uppercase text-sm border-b border-current hover:text-accent pb-1 hidden md:block">
             View Articles
           </Link>
