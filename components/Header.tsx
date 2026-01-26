@@ -26,7 +26,9 @@ const Header = () => {
         {/* Navigation Content */}
         <nav className="relative z-20 h-full max-w-4xl mx-auto px-8 flex items-center">
           <div className="flex justify-between items-center font-sans w-full">
-            <Link href="/" className="text-2xl font-bold text-white drop-shadow-lg">drumwolfmusik</Link>
+            <Link href="/" className="text-2xl md:text-2xl lg:text-3xl font-display font-black leading-[0.85] tracking-tighter mb-2 text-white">
+              drumwolfmusik
+            </Link>
             <div className="space-x-6">
               <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg">Articles</Link>
             </div>
