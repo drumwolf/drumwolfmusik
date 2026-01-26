@@ -20,18 +20,14 @@ const Header = () => {
           style={{ position: 'absolute' }}
         />
         
-        {/* Overlay - using bg-black/30 syntax instead */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/30 z-10"></div>
         
         {/* Navigation Content */}
         <nav className="relative z-20 h-full max-w-4xl mx-auto px-8 flex items-center">
           <div className="flex justify-between items-center font-sans w-full">
-            <Link href="/" className="text-2xl md:text-2xl lg:text-3xl font-display font-black leading-[0.85] tracking-tighter mb-2 text-white">
-              drumwolfmusik
-            </Link>
-            <div className="space-x-6">
-              <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg">Articles</Link>
-            </div>
+            <Link href="/" className="text-2xl font-bold text-white drop-shadow-lg leading-none">drumwolfmusik</Link>
+            <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">Articles</Link>
           </div>
         </nav>
       </div>
