@@ -3,6 +3,7 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import type { Metadata } from "next";
 import Script from "next/script"
 
@@ -45,6 +46,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Header />
         <main className="max-w-4xl mx-auto font-sans bg-white min-h-screen">
           {children}
+          <Footer />
         </main>
       </body>
     </html>
