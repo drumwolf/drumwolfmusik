@@ -1,4 +1,4 @@
-import { ArrowUpRight, Disc } from 'lucide-react'
+import { ArrowUpRight, Disc, Zap } from 'lucide-react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,7 +9,30 @@ export default function Home() {
 
   return (
     <>
-      <Image src="/images/cover_photo.jpg" width={896} height={192} alt="Musik" className="w-full h-48 object-cover mb-8" />
+      <section className="relative overflow-hidden border-b-2 border-primary h-48">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src={'/images/cover_photo.jpg'} 
+            alt="Drumwolf cover"
+            width={896}
+            height={192}
+            className="w-full h-full object-cover filter contrast-110"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        <div className="relative z-10 px-8 h-full flex flex-col justify-end pb-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black leading-[0.85] tracking-tighter mb-2 text-white">
+            drumwolfmusik
+          </h1>
+          <div className="flex items-center gap-2 md:gap-4 text-white font-mono text-xs md:text-sm uppercase tracking-wider">
+            <Zap className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
+            <span className="leading-tight">Alternative and Indie Musical Sounds, past and present</span>
+          </div>
+        </div>
+      </section>
+
+      {/* <Image src="/images/cover_photo.jpg" width={896} height={192} alt="Musik" className="w-full h-48 object-cover mb-8" /> */}
 
       {/* Featured Grid */}
       <section className="space-y-8 px-8 py-8">
