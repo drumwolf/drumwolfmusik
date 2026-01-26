@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
 
@@ -8,17 +9,30 @@ const Header = () => {
   if (pathname === '/') return null
 
   return (
-    <header className="border-b border-gray-200 bg-gray-300">
-      <nav className="max-w-4xl mx-auto px-4 py-6">
-        <div className="flex justify-between items-center font-sans">
-            <Link href="/" className="text-2xl font-bold">drumwolfmusik</Link>
+    <header className="relative border-b border-gray-200 overflow-hidden">
+      <div className="relative h-20">
+        {/* Background Image */}
+        <Image 
+          src="/images/cover_photo.jpg" 
+          alt="Cover" 
+          fill
+          className="object-cover"
+          style={{ position: 'absolute' }}
+        />
+        
+        {/* Overlay - using bg-black/30 syntax instead */}
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        
+        {/* Navigation Content */}
+        <nav className="relative z-20 h-full max-w-4xl mx-auto px-8 flex items-center">
+          <div className="flex justify-between items-center font-sans w-full">
+            <Link href="/" className="text-2xl font-bold text-white drop-shadow-lg">drumwolfmusik</Link>
             <div className="space-x-6">
-            <Link href="/posts" className="hover:text-blue-600">Posts</Link>
-            {/* <Link href="/interviews" className="hover:text-blue-600">Interviews</Link>
-            <Link href="/scenes" className="hover:text-blue-600">Scenes</Link> */}
+              <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg">Articles</Link>
             </div>
-        </div>
-      </nav>
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }
