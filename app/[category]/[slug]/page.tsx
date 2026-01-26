@@ -59,10 +59,10 @@ export default async function PostPage({ params }: Props) {
     <article className="px-8">
       <header className="mb-8 pt-6">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-        <div className="text-gray-600 mb-4">
+        <div className="text-sm text-gray-600 mb-2">
           {new Date(post.date).toLocaleDateString()} · {post.readingTime}
-          {post.band && ` · ${post.band}`}
         </div>
+        <p className="text-gray-700 mb-2">{post.description}</p>
         {post.tags && (
           <div className="flex gap-2 mb-4">
             {post.tags.map(tag => (
