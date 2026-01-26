@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import { YouTubeEmbed } from '@/components/YouTubeEmbed'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -19,6 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </blockquote>
     ),
     hr: () => <hr className="border-gray-300 my-6" />,
+    YouTubeEmbed,
     ...components,
   }
 }
