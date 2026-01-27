@@ -6,7 +6,7 @@ export default function PostsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 rounded-sm shadow">
+      <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 shadow">
         Posts
       </h1>
       <div className="space-y-8 px-8">
