@@ -10,14 +10,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Add these new color definitions */
+  --color-muted-foreground: #374151; /* gray-700 equivalent */
+  --color-primary: #000000;
+  --color-accent: #2563eb; /* blue-600 equivalent */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
