@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="max-w-4xl mx-auto font-sans bg-white border-t border-gray-700">
-      <div className="max-w-4xl mx-auto px-8 py-6 flex items-center justify-between">
+    <footer>
+      <div className="font-sans max-w-4xl mx-auto px-8 py-6 flex items-center justify-between bg-white border-t border-gray-700">
         <div className="text-sm text-gray-600 flex items-center">
           © 2026 drumwolfmusik
           <div className="mx-2">|</div>

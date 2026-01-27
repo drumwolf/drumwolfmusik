@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/posts'
 import Link from 'next/link'
+import { getAllPosts } from '@/lib/posts'
 
 export default function PostsPage() {
   const interviews = getAllPosts('interviews')

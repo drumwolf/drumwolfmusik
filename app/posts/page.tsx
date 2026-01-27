@@ -9,7 +9,7 @@ export default function PostsPage() {
       <h1 className="text-2xl font-bold mb-8 bg-gray-600 text-white text-center py-1 rounded-sm shadow">
         Posts
       </h1>
-      <div className="space-y-8 px-4">
+      <div className="space-y-8 px-8">
         {posts.map(post => (
           <article key={post.slug} className="border-b border-gray-200 pb-6">
             <Link href={`/posts/${post.slug}`}>
@@ -17,10 +17,10 @@ export default function PostsPage() {
                 {post.title}
               </h2>
             </Link>
-            <div className="text-sm text-gray-700 mb-2">
+            <div className="text-sm text-gray-600 mb-2">
               {new Date(post.date).toLocaleDateString()} · {post.readingTime}
             </div>
-            <p className="text-gray-900">{post.description}</p>
+            <p className="text-gray-700">{post.description}</p>
             {post.tags && (
               <div className="mt-2 flex gap-2">
                 {post.tags.map(tag => (

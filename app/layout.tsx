@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0QXYRPWDR0"
@@ -44,7 +44,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           `}
         </Script>
         <Header />
-        <main className="max-w-4xl mx-auto font-sans bg-white min-h-screen">
+        <main className="max-w-4xl mx-auto font-sans bg-white flex-1 w-full">
           {children}
         </main>
         <Footer />
