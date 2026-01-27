@@ -17,10 +17,10 @@ export default function PostsPage() {
                 {post.title}
               </h2>
             </Link>
-            <div className="text-sm text-gray-600 mb-2">
+            <div className="text-sm text-gray-700 mb-2">
               {new Date(post.date).toLocaleDateString()} · {post.readingTime}
             </div>
-            <p className="text-gray-700">{post.description}</p>
+            <p className="text-gray-900">{post.description}</p>
             {post.tags && (
               <div className="mt-2 flex gap-2">
                 {post.tags.map(tag => (
