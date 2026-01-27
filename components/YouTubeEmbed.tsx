@@ -1,6 +1,6 @@
 export function YouTubeEmbed({ videoId }: { videoId: string }) {
   return (
-    <div className="relative aspect-video w-full max-w-[560px] my-4">
+    <div className="relative aspect-video w-full max-w-[560px] mt-4">
       <iframe 
         className="absolute top-0 left-0 w-full h-full" 
         src={`https://www.youtube.com/embed/${videoId}`}

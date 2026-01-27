@@ -56,7 +56,7 @@ export default async function PostPage({ params }: Props) {
   } as any)
 
   return (
-    <article className="px-8">
+    <article className="px-8 pb-8">
       <header className="mb-8 pt-6">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="text-sm text-gray-700 mb-2">
@@ -76,16 +76,6 @@ export default async function PostPage({ params }: Props) {
       <hr className="border-gray-300 mb-8" />
       <div className="prose prose-lg max-w-none">
         <MDXContent components={mdxComponents} />
-      </div>
-
-      {/* Back to Top Link */}
-      <div className="mt-12 py-4 border-t border-gray-300 text-center">
-        <a 
-          href="#top" 
-          className="inline-block text-blue-600 hover:text-blue-800 font-semibold"
-        >
-          ↑ Back to Top
-        </a>
       </div>
     </article>
   )
