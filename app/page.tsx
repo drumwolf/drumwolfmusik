@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {posts.map(post => (
+          {posts.slice(0,3).map(post => (
             <article key={post.slug} className={`group`}>
               <Link href={`/${post.category}/${post.slug}`}>
                 <div className="relative aspect-[4/5] overflow-hidden border-2 border-primary mb-6 brutal-shadow group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-none transition-all duration-300">
