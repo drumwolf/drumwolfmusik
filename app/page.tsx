@@ -3,6 +3,7 @@ import { ArrowUpRight, Disc, Zap } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
+import { getDateString } from '@/utils/date'
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 10)
@@ -60,7 +61,7 @@ export default function Home() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-muted-foreground font-mono text-xs uppercase">
                     <Disc className="w-4 h-4" />
-                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                    <span>{getDateString(post.date)}</span>
                   </div>
                   <h3 className="text-xl font-display font-bold leading-tight group-hover:text-accent transition-colors">
                     {post.title}

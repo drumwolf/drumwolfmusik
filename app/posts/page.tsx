@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
+import { getDate } from '@/utils/date'
 
 export default function PostsPage() {
   const posts = getAllPosts('posts')
@@ -18,7 +19,7 @@ export default function PostsPage() {
               </h2>
             </Link>
             <div className="text-sm text-gray-600 mb-2">
-              {new Date(post.date).toLocaleDateString()} · {post.readingTime}
+              {getDate(post.date)} · {post.readingTime}
             </div>
             <p className="text-gray-700">{post.description}</p>
             {post.tags && (

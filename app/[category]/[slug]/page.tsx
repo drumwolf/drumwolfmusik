@@ -6,6 +6,7 @@ import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { useMDXComponents } from '@/mdx-components'
+import { getDate } from '@/utils/date'
 
 type Props = {
   params: Promise<{ category: string; slug: string }>
@@ -61,7 +62,7 @@ export default async function PostPage({ params }: Props) {
         <header className="mb-8 pt-6">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <div className="text-sm text-gray-700 mb-2">
-            {new Date(post.date).toLocaleDateString()} · {post.readingTime}
+            {getDate(post.date)} · {post.readingTime}
           </div>
           <p className="text-gray-700 mb-2">{post.description}</p>
           {post.tags && (
