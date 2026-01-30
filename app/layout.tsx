@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   title: 'drumwolfmusik - Underground Sounds, Then and Now',
   description: 'In-depth music coverage, interviews, and scene overviews',
   keywords: ['music blog', 'band interviews', 'music scenes', 'album reviews'],
+  metadataBase: new URL('https://drumwolf.org'),
+  alternates: {
+    canonical: '/',
+  },
   verification: {
     google: 'DmRG2D2ucbT9CfGoQngzrImZSTavAS9Qkxw0E_1gPkM',
   },

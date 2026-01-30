@@ -4,9 +4,9 @@ import { compile, run } from '@mdx-js/mdx'
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 
 import { Metadata } from 'next'
+import { getDate } from '@/utils/date'
 import { notFound } from 'next/navigation'
 import { useMDXComponents } from '@/mdx-components'
-import { getDate } from '@/utils/date'
 
 type Props = {
   params: Promise<{ category: string; slug: string }>
@@ -28,11 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | drumwolfmusik`,
     description: post.description,
     keywords: post.tags,
+    alternates: {
+      canonical: `/${category}/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
+      url: `https://drumwolf.org/${category}/${slug}`,
     },
   }
 }
