@@ -1,6 +1,15 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import { getDate } from '@/utils/date'
+
+export const metadata: Metadata = {
+  title: 'Posts | drumwolfmusik',
+  description: 'Browse all music posts and articles',
+  alternates: {
+    canonical: '/posts',
+  },
+}
 
 export default function PostsPage() {
   const posts = getAllPosts('posts')
