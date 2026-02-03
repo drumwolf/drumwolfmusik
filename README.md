@@ -1,36 +1,168 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# drumwolfmusik
+
+A modern music editorial platform featuring alternative and indie music content, both past and present.
+
+🔗 **Live Site:** [drumwolf.org](https://drumwolf.org)
+
+## Overview
+
+drumwolfmusik is a content-focused music blog built with Next.js 16 and TypeScript. The site uses MDX for content management, allowing rich formatting and embedded components within blog posts. It features a clean, responsive design with a focus on readability and performance.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Content:** MDX (Markdown + JSX)
+- **Styling:** Tailwind CSS
+- **Deployment:** Firebase Hosting
+- **Font:** Geist (Vercel)
+
+## Features
+
+- ✨ Static site generation with Next.js App Router
+- 📝 MDX content management for rich, component-based posts
+- 🎨 Responsive design with Tailwind CSS
+- 🚀 Optimized performance and SEO
+- 📱 Mobile-first approach
+- 🔗 Dynamic routing for blog posts and categories
+- 📊 Sitemap generation
+- 🎯 TypeScript for type safety
+
+## Project Structure
+```
+drumwolfmusik/
+├── app/                  # Next.js App Router pages
+│   ├── [category]/      # Dynamic category pages
+│   ├── posts/           # Blog post listing
+│   ├── layout.tsx       # Root layout
+│   └── page.tsx         # Homepage
+├── components/          # React components
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   └── YouTubeEmbed.tsx
+├── content/            # MDX blog posts
+│   └── posts/
+├── lib/                # Utility functions
+├── types/              # TypeScript type definitions
+├── utils/              # Helper functions
+└── public/             # Static assets
+    └── images/
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/drumwolf/drumwolfmusik.git
+
+# Navigate to project directory
+cd drumwolfmusik
+
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
+```bash
+# Run development server
+npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Open http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build
+```bash
+# Create production build
+npm run build
 
-## Learn More
+# Generate static export
+npm run export
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site is deployed to Firebase Hosting. To deploy:
+```bash
+# Build and deploy
+npm run build
+firebase deploy
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content Management
 
-## Deploy on Vercel
+Blog posts are written in MDX format and stored in `/content/posts/`. Each post includes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Frontmatter metadata (title, date, category, image)
+- Rich content with Markdown formatting
+- Embedded React components (YouTube embeds, etc.)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Example post structure:
+```mdx
+---
+title: "Post Title"
+date: "2026-01-26"
+category: "posts"
+image: "/images/2026-01-26.jpg"
+---
+
+Post content goes here...
+```
+
+## Key Features Implemented
+
+### Dynamic Routing
+- Category-based routing (`/[category]/[slug]`)
+- Static path generation for all posts
+- SEO-optimized metadata for each page
+
+### Content System
+- MDX parsing with custom components
+- Frontmatter metadata extraction
+- Category-based organization
+- Date-sorted post listing
+
+### Performance
+- Static site generation (SSG)
+- Optimized images
+- Font optimization with next/font
+- Minimal JavaScript payload
+
+## Development Decisions
+
+**Why Next.js App Router?** 
+- Modern React Server Components
+- Built-in SEO optimization
+- File-based routing
+- Static site generation support
+
+**Why MDX?**
+- Combines Markdown simplicity with React component power
+- Easy content authoring
+- Ability to embed interactive elements
+
+**Why Static Export?**
+- Fast hosting on Firebase
+- No server required
+- Excellent performance
+- Low hosting costs
+
+## Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Font: [Geist](https://vercel.com/font) by Vercel
+- Deployed on [Firebase Hosting](https://firebase.google.com/products/hosting)
+
+## Author
+
+John Lee ([@drumwolf](https://github.com/drumwolf))
+
+## License
+
+This project is open source and available for reference.
