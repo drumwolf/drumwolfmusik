@@ -15,7 +15,7 @@ export default function Home() {
           <Image 
             src={'/images/cover_photo.jpg'} 
             alt="Drumwolf cover"
-            width={896}
+            width={1024}
             height={192}
             className="w-full h-full object-cover filter contrast-110"
           />
