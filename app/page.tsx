@@ -53,7 +53,7 @@ export default function Home() {
               <Link href={`/${post.category}/${post.slug}`}>
                 <div className="relative aspect-[4/5] overflow-hidden border-2 border-primary mb-6 brutal-shadow group-hover:translate-x-1 group-hover:translate-y-1 group-hover:shadow-none transition-all duration-300">
                   <Image 
-                    src={`/images/${post.slug}.jpg`}
+                    src={`/images/${post.date}.jpg`}
                     width="10"
                     height="10"
                     alt="Vinyl Record" 

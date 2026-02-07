@@ -7,6 +7,38 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/posts/2026-01-24",
+        "destination": "/posts/seven-indie-bands-you-didnt-know",
+        "type": 301
+      },
+      {
+        "source": "/posts/2026-01-25",
+        "destination": "/posts/the-scottish-connection",
+        "type": 301
+      },
+      {
+        "source": "/posts/2026-01-26",
+        "destination": "/posts/the-scottish-connection-part-2",
+        "type": 301
+      },
+      {
+        "source": "/posts/2026-01-30",
+        "destination": "/posts/beyond-nirvana-grunge-era-bands",
+        "type": 301
+      },
+      {
+        "source": "/posts/2026-01-31",
+        "destination": "/posts/beyond-nirvana-part-2",
+        "type": 301
+      },
+      {
+        "source": "/posts/2026-02-07",
+        "destination": "/posts/my-bloody-valentine-evolution",
+        "type": 301
+      }
+    ]
   }
 }

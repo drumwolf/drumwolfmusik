@@ -1,6 +1,7 @@
 export interface PostMetadata {
   title: string
   date: string
+  slug?: string
   description: string
   author?: string
   tags?: string[]
