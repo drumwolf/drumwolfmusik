@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="relative overflow-hidden">
-      <div className="relative h-20 max-w-4xl mx-auto"> {/* Add max-w-4xl mx-auto here */}
+      <div className="relative h-20 md:max-w-3xl lg:max-w-5xl mx-auto">
         {/* Background Image */}
         <Image 
           src="/images/cover_photo.jpg" 
