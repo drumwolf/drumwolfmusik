@@ -50,7 +50,7 @@
 
 @layer components {
   .content-width {
-    @apply md:max-w-3xl lg:max-w-5xl mx-auto;
+    @apply md:max-w-3xl lg:max-w-5xl mx-auto font-sans;
   }
 }
 

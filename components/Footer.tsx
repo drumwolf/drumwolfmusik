@@ -3,7 +3,7 @@ import "../app/globals.css";
 const Footer = () => {
   return (
     <footer>
-      <div className="content-width font-sans x-8 py-6 flex items-center justify-between bg-white border-t border-gray-700">
+      <div className="content-width px-8 py-6 flex items-center justify-between bg-white border-t border-gray-700">
         <div className="text-sm text-gray-600 flex items-center">
           © 2026 drumwolfmusik
           <div className="mx-2">|</div>

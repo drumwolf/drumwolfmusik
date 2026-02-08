@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="relative overflow-hidden">
-      <div className="relative content-width h-20">
+      <div className="relative h-20 content-width">
         {/* Background Image */}
         <Image 
           src="/images/cover_photo.jpg" 
