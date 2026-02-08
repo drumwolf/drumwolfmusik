@@ -54,7 +54,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           </>
         )}
         <Header />
-        <main className="content-width bg-white flex-1 w-full">
+        <main className="content-width bg-white flex-1">
           {children}
         </main>
         <Footer />
