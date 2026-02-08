@@ -70,7 +70,7 @@ export default async function PostPage({ params }: Props) {
           </div>
           <p className="text-gray-700 mb-2">{post.description}</p>
           {post.tags && (
-            <div className="flex gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map(tag => (
                 <span key={tag} className="text-sm bg-gray-200 px-3 py-1 rounded">
                   {tag}
