@@ -48,6 +48,12 @@
   }
 } */
 
+@layer utilities {
+  .content-width {
+    @apply md:max-w-3xl lg:max-w-5xl mx-auto font-sans;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
