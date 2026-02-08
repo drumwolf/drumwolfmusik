@@ -1,5 +1,7 @@
 'use client'
 
+import "../app/globals.css";
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
@@ -10,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="relative overflow-hidden">
-      <div className="relative h-20 md:max-w-3xl lg:max-w-5xl mx-auto">
+      <div className="relative content-width h-20">
         {/* Background Image */}
         <Image 
           src="/images/cover_photo.jpg" 
