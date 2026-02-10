@@ -42,7 +42,7 @@ export default function Home() {
 
       {/* Featured Grid */}
       <section className="space-y-8 px-8 py-8">
-        <div className="flex items-end justify-between mb-16 border-b-2 border-primary pb-4">
+        <div className="flex items-end justify-between border-b-2 border-primary pb-4">
           <h2 className="text-2xl font-display font-bold uppercase">Latest Spew</h2>
           <Link href="/posts" className="font-mono uppercase text-sm border-b border-current hover:text-accent pb-1 hidden md:block">
             View Articles
