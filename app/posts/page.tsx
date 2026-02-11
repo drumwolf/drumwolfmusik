@@ -32,7 +32,7 @@ export default function PostsPage() {
             </div>
             <p className="text-gray-700">{post.description}</p>
             {post.tags && (
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex flex-wrap gap-2">
                 {post.tags.map(tag => (
                   <span key={tag} className="text-xs bg-gray-200 px-2 py-1 rounded">
                     {tag}

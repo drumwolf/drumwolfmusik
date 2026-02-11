@@ -50,7 +50,20 @@
 
 @layer utilities {
   .content-width {
-    @apply md:max-w-3xl lg:max-w-5xl mx-auto font-sans;
+    @apply mx-auto font-sans;
+  }
+
+  @media (min-width: 768px) {
+    .content-width {
+      width: 100vw;
+      max-width: 48rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-width {
+      max-width: 64rem;
+    }
   }
 }
 
