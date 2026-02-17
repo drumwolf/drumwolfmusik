@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import { LoginProvider } from "@/contexts/LoginContextProvider"
 import type { Metadata } from "next";
 import Script from "next/script"
 
@@ -53,11 +54,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             </Script>
           </>
         )}
-        <Header />
-        <main className="content-width bg-white flex-1">
-          {children}
-        </main>
-        <Footer />
+        <LoginProvider>
+          <Header />
+          <main className="content-width bg-white flex-1">
+            {children}
+          </main>
+          <Footer />
+        </LoginProvider>
       </body>
     </html>
   )

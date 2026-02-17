@@ -4,23 +4,14 @@ import "../app/globals.css";
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { logout } from '@/app/auth/actions'
+import { useLogin } from '@/contexts/LoginContextProvider'
 import { usePathname } from "next/navigation"
 
-import { createClient } from '@/lib/supabase/client'
-import { logout } from '@/app/auth/actions'
-
 const Header = () => {
+  const { isLoggedIn } = useLogin()
+
   const pathname = usePathname()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  useEffect(() => {
-    const supabase = createClient()
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setIsLoggedIn(!!user)
-    })
-  }, [pathname])
-
   if (pathname === '/') return null
 
   return (
