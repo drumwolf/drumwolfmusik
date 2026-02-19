@@ -13,6 +13,7 @@ const Header = () => {
 
   const pathname = usePathname()
   if (pathname === '/') return null
+  const isProduction = process.env.NODE_ENV === 'production';
 
   return (
     <header className="relative overflow-hidden">
@@ -35,7 +36,7 @@ const Header = () => {
             <Link href="/" className="text-2xl font-display font-black drop-shadow-lg leading-[0.85] tracking-tighter text-white">drumwolfmusik</Link>
             <div className="flex items-center gap-4">
               <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">Articles</Link>
-              {isLoggedIn ? (
+              {!isProduction && (isLoggedIn ? (
                 <form action={logout}>
                   <button
                     type="submit"
@@ -48,7 +49,7 @@ const Header = () => {
                 <Link href="/login" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">
                   Log In
                 </Link>
-              )}
+              ))}
             </div>
           </div>
         </nav>
