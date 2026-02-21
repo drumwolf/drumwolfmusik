@@ -30,6 +30,21 @@ export default async function SignupPage({
 
         <form className="space-y-4">
           <div className="space-y-2">
+            <label htmlFor="username" className="text-sm font-medium">
+              Username <span className="text-red-500">*</span>
+            </label>
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              required
+              pattern="[a-z0-9_-]+"
+              title="Lowercase letters, numbers, hyphens, and underscores only"
+              placeholder="your_band_name"
+            />
+          </div>
+
+          <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>

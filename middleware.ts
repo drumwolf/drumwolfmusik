@@ -29,19 +29,17 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  // Refresh the auth session
-  await supabase.auth.getUser()
+  // Refresh the auth session and get the current user
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
-  // Protected routes pattern (uncomment when needed):
-  // const {
-  //   data: { user },
-  // } = await supabase.auth.getUser()
-  //
-  // if (!user && request.nextUrl.pathname.startsWith('/protected')) {
-  //   const url = request.nextUrl.clone()
-  //   url.pathname = '/login'
-  //   return NextResponse.redirect(url)
-  // }
+  // Protect the profile edit route — must be logged in
+  if (!user && request.nextUrl.pathname.match(/^\/profile\/[^/]+\/edit/)) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/login'
+    return NextResponse.redirect(url)
+  }
 
   return supabaseResponse
 }
