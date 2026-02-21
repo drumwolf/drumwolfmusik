@@ -37,14 +37,19 @@ const Header = () => {
             <div className="flex items-center gap-4">
               <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">Articles</Link>
               {!isProduction && (isLoggedIn ? (
-                <form action={logout}>
-                  <button
-                    type="submit"
-                    className="hover:text-blue-400 text-white drop-shadow-lg leading-none cursor-pointer"
-                  >
-                    Log Out
-                  </button>
-                </form>
+                <>
+                  <Link href="/profile" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">
+                    Profile
+                  </Link>
+                  <form action={logout}>
+                    <button
+                      type="submit"
+                      className="hover:text-blue-400 text-white drop-shadow-lg leading-none cursor-pointer"
+                    >
+                      Log Out
+                    </button>
+                  </form>
+                </>
               ) : (
                 <Link href="/login" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">
                   Log In
