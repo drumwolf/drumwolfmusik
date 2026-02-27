@@ -1,8 +1,8 @@
-export function BandcampEmbed({ videoId }: { videoId: string }) {
+export function BandcampEmbed({ albumId }: { albumId: string }) {
   return (
     <iframe
-      style={{ border: 0, width: '100%' }}
-      src={`https://bandcamp.com/EmbeddedPlayer/album=${videoId}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/`}
+      className="border-0 w-full h-70"
+      src={`https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/`}
       seamless
     />
   )
