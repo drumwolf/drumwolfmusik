@@ -12,7 +12,7 @@ const Search = () => {
     <ButtonGroup>
       <Input
         id="input-button-group"
-        className="bg-white focus-visible:ring-0"
+        className="bg-white focus-visible:ring-0 w-60"
         placeholder="Type to search..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
