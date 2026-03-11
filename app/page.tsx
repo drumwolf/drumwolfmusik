@@ -26,7 +26,7 @@ export default function Home() {
         <div className="absolute z-12 top-6 left-8 hidden md:block">
           <Search />
         </div>
-        <div className="absolute right-8 top-8">
+        <div className="absolute z-12 right-8 top-8">
           <Navbar />
         </div>
         <div className="relative z-10 px-8 h-full flex flex-col justify-end pb-4">
