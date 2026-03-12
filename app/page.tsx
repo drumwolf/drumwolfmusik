@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 import Search from '@/components/Search'
 import { SearchProvider } from '@/contexts/SearchContextProvider'
 import SearchablePostGrid from '@/components/SearchablePostGrid'
@@ -22,8 +23,11 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>
-        <div className="absolute z-12 top-2 right-0 w-71 hidden md:block">
+        <div className="absolute z-12 top-6 left-8 hidden md:block">
           <Search />
+        </div>
+        <div className="absolute z-12 right-8 top-8">
+          <Navbar />
         </div>
         <div className="relative z-10 px-8 h-full flex flex-col justify-end pb-4">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-black leading-[0.85] tracking-tighter mb-2 text-white">
