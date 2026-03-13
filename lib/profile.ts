@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { Profile } from '@/types/profile'
+import { Profile, ProfileLink } from '@/types/profile'
 
 export async function getProfileByUsername(username: string): Promise<Profile | null> {
   const supabase = await createClient()
@@ -26,4 +26,17 @@ export async function getOwnProfile(): Promise<Profile | null> {
 
   if (error || !data) return null
   return data as Profile
+}
+
+export async function getProfileLinks(profileId: string): Promise<ProfileLink[]> {
+  const supabase = await createClient()
+  const { data, error } = await supabase
+    .from('profile_links')
+    .select('*')
+    .eq('profile_id', profileId)
+    .order('sort_order', { ascending: true })
+    .order('created_at', { ascending: true })
+
+  if (error || !data) return []
+  return data as ProfileLink[]
 }

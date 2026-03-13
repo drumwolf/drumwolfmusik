@@ -2,14 +2,16 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { updateProfile } from '@/app/profile/actions'
-import { Profile } from '@/types/profile'
+import { updateProfile, addProfileLink, deleteProfileLink } from '@/app/profile/actions'
+import { Profile, ProfileLink } from '@/types/profile'
 
 export default function EditProfileForm({
   profile,
+  links,
   error,
 }: {
   profile: Profile
+  links: ProfileLink[]
   error?: string
 }) {
   return (
@@ -79,10 +81,84 @@ export default function EditProfileForm({
             />
           </div>
 
+          <div className="space-y-2">
+            <label htmlFor="bandcamp_embed_id" className="text-sm font-medium">
+              Bandcamp Album ID
+            </label>
+            <Input
+              id="bandcamp_embed_id"
+              name="bandcamp_embed_id"
+              type="text"
+              defaultValue={profile.bandcamp_embed_id ?? ''}
+              placeholder="e.g. 1234567890"
+            />
+            <p className="text-xs text-muted-foreground">
+              The numeric ID from a Bandcamp embed code (album=XXXXXXXXXX)
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="soundcloud_embed_url" className="text-sm font-medium">
+              SoundCloud Track/Playlist URL
+            </label>
+            <Input
+              id="soundcloud_embed_url"
+              name="soundcloud_embed_url"
+              type="url"
+              defaultValue={profile.soundcloud_embed_url ?? ''}
+              placeholder="https://soundcloud.com/artist/track"
+            />
+          </div>
+
           <Button formAction={updateProfile} className="w-full">
             Save Profile
           </Button>
         </form>
+
+        <div className="space-y-3 pt-4 border-t">
+          <h2 className="text-sm font-semibold">Links</h2>
+
+          {links.length > 0 && (
+            <ul className="space-y-2">
+              {links.map((link) => (
+                <li key={link.id} className="flex items-center justify-between gap-2 text-sm">
+                  <span className="truncate">
+                    {link.label ? (
+                      <><span className="font-medium">{link.label}</span> — {link.url}</>
+                    ) : (
+                      link.url
+                    )}
+                  </span>
+                  <form action={deleteProfileLink}>
+                    <input type="hidden" name="id" value={link.id} />
+                    <input type="hidden" name="username" value={profile.username} />
+                    <button type="submit" className="text-red-500 hover:text-red-700 shrink-0 text-xs cursor-pointer">
+                      Remove
+                    </button>
+                  </form>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <form action={addProfileLink} className="space-y-2">
+            <input type="hidden" name="username" value={profile.username} />
+            <Input
+              name="url"
+              type="url"
+              placeholder="https://bandcamp.com/yourname"
+              required
+            />
+            <Input
+              name="label"
+              type="text"
+              placeholder="Label (optional)"
+            />
+            <Button type="submit" variant="outline" className="w-full">
+              Add Link
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   )

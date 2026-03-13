@@ -3,8 +3,10 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 
-import { getProfileByUsername } from '@/lib/profile'
+import { getProfileByUsername, getProfileLinks } from '@/lib/profile'
 import { createClient } from '@/lib/supabase/server'
+import { BandcampEmbed } from '@/components/BandcampEmbed'
+import { SoundCloudEmbed } from '@/components/SoundCloudEmbed'
 
 type Props = {
   params: Promise<{ username: string }>
@@ -31,6 +33,8 @@ export default async function ProfilePage({ params }: Props) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   const isOwner = user?.id === profile.id
+
+  const links = await getProfileLinks(profile.id)
 
   return (
     <div className="flex min-h-[60vh] justify-center px-4 py-12">
@@ -59,6 +63,31 @@ export default async function ProfilePage({ params }: Props) {
 
         {profile.bio && (
           <p className="text-gray-700 whitespace-pre-wrap">{profile.bio}</p>
+        )}
+
+        {links.length > 0 && (
+          <ul className="space-y-1">
+            {links.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 hover:underline"
+                >
+                  {link.label ?? link.url}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {profile.bandcamp_embed_id && (
+          <BandcampEmbed albumId={profile.bandcamp_embed_id} />
+        )}
+
+        {profile.soundcloud_embed_url && (
+          <SoundCloudEmbed url={profile.soundcloud_embed_url} />
         )}
 
         {isOwner && (

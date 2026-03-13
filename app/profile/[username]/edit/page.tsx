@@ -1,7 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
-import { getProfileByUsername } from '@/lib/profile'
+import { getProfileByUsername, getProfileLinks } from '@/lib/profile'
 import EditProfileForm from './EditProfileForm'
 
 type Props = {
@@ -30,5 +30,7 @@ export default async function EditProfilePage({ params, searchParams }: Props) {
     redirect(`/profile/${username}`)
   }
 
-  return <EditProfileForm profile={profile} error={error} />
+  const links = await getProfileLinks(profile.id)
+
+  return <EditProfileForm profile={profile} links={links} error={error} />
 }
