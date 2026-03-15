@@ -5,7 +5,7 @@ export interface PostMetadata {
   description: string
   author?: string
   tags?: string[]
-  category: 'posts' | 'interviews' | 'scenes'
+  category: 'posts' | 'interviews' | 'scenes' | 'webcasts'
   band?: string
   location?: string
 }

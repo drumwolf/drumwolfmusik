@@ -36,6 +36,7 @@ const Header = () => {
             <Link href="/" className="text-2xl font-display font-black drop-shadow-lg leading-[0.85] tracking-tighter text-white">drumwolfmusik</Link>
             <div className="flex items-center gap-4">
               <Link href="/posts" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">Articles</Link>
+              <Link href="/webcasts" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">Webcasts</Link>
               {!isProduction && (isLoggedIn ? (
                 <>
                   <Link href="/profile" className="hover:text-blue-400 text-white drop-shadow-lg leading-none">

@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
+import { supabaseAdmin } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 
 export async function login(formData: FormData) {
@@ -42,7 +43,7 @@ export async function signup(formData: FormData) {
   }
 
   if (data.user) {
-    const { error: profileError } = await supabase
+    const { error: profileError } = await supabaseAdmin
       .from('profiles')
       .insert({ id: data.user.id, username })
 

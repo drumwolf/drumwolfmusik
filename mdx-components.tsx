@@ -1,5 +1,6 @@
 import { BandcampEmbed } from '@/components/BandcampEmbed'
 import type { MDXComponents } from 'mdx/types'
+import { MixCloudEmbed } from '@/components/MixCloudEmbed'
 import { YouTubeEmbed } from '@/components/YouTubeEmbed'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -22,6 +23,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     hr: () => <hr className="border-gray-300 my-6" />,
     BandcampEmbed,
+    MixCloudEmbed,
     YouTubeEmbed,
     ...components,
   }

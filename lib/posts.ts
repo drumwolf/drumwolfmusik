@@ -59,7 +59,7 @@ export function getPostBySlug(category: string, slug: string): Post {
 
 export function getAllPosts(category?: string): Post[] {
   // const categories = category ? [category] : ['posts', 'interviews', 'scenes']
-  const categories = category ? [category] : ['posts']
+  const categories = category ? [category] : ['posts', 'webcasts']
   const posts: Post[] = []
 
   categories.forEach(cat => {
