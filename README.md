@@ -1,168 +1,122 @@
 # drumwolfmusik
 
-A modern music editorial platform featuring alternative and indie music content, both past and present.
+A music editorial platform covering alternative and indie music, past and present. Features articles, interviews, and webcasts organized by category.
 
-🔗 **Live Site:** [drumwolf.org](https://drumwolf.org)
+**Live site:** https://drumwolf.org
 
-## Overview
+Developed using an AI-assisted workflow with Claude Code.
 
-drumwolfmusik is a content-focused music blog built with Next.js 16 and TypeScript. The site uses MDX for content management, allowing rich formatting and embedded components within blog posts. It features a clean, responsive design with a focus on readability and performance.
+## Stack
 
-## Tech Stack
-
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Content:** MDX (Markdown + JSX)
-- **Styling:** Tailwind CSS
-- **Deployment:** Firebase Hosting
-- **Font:** Geist (Vercel)
+- **Next.js 16** (App Router) — framework with server components and middleware
+- **TypeScript** — end-to-end type safety
+- **MDX** — content authoring with embedded React components
+- **Tailwind CSS v4** — styling
+- **Supabase** — authentication and user profiles (via `@supabase/ssr`)
+- **Radix UI** — accessible UI primitives
+- **Firebase Hosting** — static deployment
 
 ## Features
 
-- ✨ Static site generation with Next.js App Router
-- 📝 MDX content management for rich, component-based posts
-- 🎨 Responsive design with Tailwind CSS
-- 🚀 Optimized performance and SEO
-- 📱 Mobile-first approach
-- 🔗 Dynamic routing for blog posts and categories
-- 📊 Sitemap generation
-- 🎯 TypeScript for type safety
+- MDX content pipeline with frontmatter parsing via `gray-matter`
+- Dynamic routing by category and slug (`/[category]/[slug]`)
+- Static site generation for all content pages
+- Reading time calculation on each post
+- Supabase Auth with SSR — login, signup, and user profiles
+- Next.js middleware for route protection on authenticated pages
+- Search with React Context
+- Media embeds: YouTube, Bandcamp, MixCloud
+- SEO: auto-generated sitemap and robots.txt
+- URL redirects for legacy post paths (in both `next.config.ts` and `firebase.json`)
 
 ## Project Structure
+
 ```
 drumwolfmusik/
-├── app/                  # Next.js App Router pages
-│   ├── [category]/      # Dynamic category pages
-│   ├── posts/           # Blog post listing
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Homepage
-├── components/          # React components
+├── app/                      # Next.js App Router
+│   ├── [category]/[slug]/    # Dynamic post pages
+│   ├── auth/                 # Auth server actions + OAuth callback
+│   ├── login/                # Login page
+│   ├── signup/               # Signup page
+│   ├── profile/              # User profile pages
+│   ├── posts/                # Posts listing
+│   ├── interviews/           # Interviews listing
+│   ├── webcasts/             # Webcasts listing
+│   ├── sitemap.ts            # Auto-generated sitemap
+│   ├── robots.ts             # robots.txt
+│   └── layout.tsx            # Root layout
+├── components/               # React components
 │   ├── Header.tsx
+│   ├── Navbar.tsx
 │   ├── Footer.tsx
-│   └── YouTubeEmbed.tsx
-├── content/            # MDX blog posts
-│   └── posts/
-├── lib/                # Utility functions
-├── types/              # TypeScript type definitions
-├── utils/              # Helper functions
-└── public/             # Static assets
-    └── images/
+│   ├── Search.tsx
+│   ├── SearchablePostGrid.tsx
+│   ├── BandcampEmbed.tsx
+│   ├── MixCloudEmbed.tsx
+│   ├── YouTubeEmbed.tsx
+│   └── ui/                   # Radix UI-based primitives
+├── content/                  # MDX source files
+│   ├── posts/
+│   ├── interviews/
+│   └── webcasts/
+├── contexts/                 # React context providers
+│   ├── LoginContextProvider.tsx
+│   └── SearchContextProvider.tsx
+├── lib/                      # Data access and utilities
+│   ├── posts.ts              # MDX parsing and post queries
+│   ├── profile.ts            # User profile queries
+│   └── supabase/             # Supabase client (server + client + admin)
+├── middleware.ts              # Route protection
+├── types/                    # TypeScript type definitions
+└── public/                   # Static assets
 ```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- A Supabase project (for auth)
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/drumwolf/drumwolfmusik.git
+### Environment variables
 
-# Navigate to project directory
-cd drumwolfmusik
+Create `.env.local`:
 
-# Install dependencies
-npm install
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
 ### Development
+
 ```bash
-# Run development server
+npm install
 npm run dev
-
-# Open http://localhost:3000
 ```
 
-### Build
-```bash
-# Create production build
-npm run build
-
-# Generate static export
-npm run export
-```
+Open [http://localhost:3000](http://localhost:3000).
 
 ### Deployment
 
-The site is deployed to Firebase Hosting. To deploy:
 ```bash
-# Build and deploy
 npm run build
 firebase deploy
 ```
 
 ## Content Management
 
-Blog posts are written in MDX format and stored in `/content/posts/`. Each post includes:
+Posts are written in MDX and stored in `/content/` by category. Each file includes frontmatter:
 
-- Frontmatter metadata (title, date, category, image)
-- Rich content with Markdown formatting
-- Embedded React components (YouTube embeds, etc.)
-
-Example post structure:
 ```mdx
 ---
 title: "Post Title"
+slug: "post-slug"
 date: "2026-01-26"
 category: "posts"
-image: "/images/2026-01-26.jpg"
+image: "/images/cover.jpg"
 ---
 
-Post content goes here...
+Post content here...
 ```
 
-## Key Features Implemented
-
-### Dynamic Routing
-- Category-based routing (`/[category]/[slug]`)
-- Static path generation for all posts
-- SEO-optimized metadata for each page
-
-### Content System
-- MDX parsing with custom components
-- Frontmatter metadata extraction
-- Category-based organization
-- Date-sorted post listing
-
-### Performance
-- Static site generation (SSG)
-- Optimized images
-- Font optimization with next/font
-- Minimal JavaScript payload
-
-## Development Decisions
-
-**Why Next.js App Router?** 
-- Modern React Server Components
-- Built-in SEO optimization
-- File-based routing
-- Static site generation support
-
-**Why MDX?**
-- Combines Markdown simplicity with React component power
-- Easy content authoring
-- Ability to embed interactive elements
-
-**Why Static Export?**
-- Fast hosting on Firebase
-- No server required
-- Excellent performance
-- Low hosting costs
-
-## Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Font: [Geist](https://vercel.com/font) by Vercel
-- Deployed on [Firebase Hosting](https://firebase.google.com/products/hosting)
-
-## Author
-
-John Lee ([@drumwolf](https://github.com/drumwolf))
-
-## License
-
-This project is open source and available for reference.
+The `slug` field in frontmatter is the canonical URL identifier. Filename-based slugs are supported as a fallback for older posts.
