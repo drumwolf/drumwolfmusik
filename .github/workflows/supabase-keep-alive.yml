@@ -1,0 +1,22 @@
+# Keeps the free-tier Supabase project from auto-pausing after 7 days of inactivity
+# by running a lightweight read query against the database every 3 days.
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: '0 12 */3 * *' # 12:00 UTC every 3rd day of the month
+  workflow_dispatch: # allow manual runs from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query profiles table
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          curl --fail --silent --show-error \
+            "$SUPABASE_URL/rest/v1/profiles?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY"
